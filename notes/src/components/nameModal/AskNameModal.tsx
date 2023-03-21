@@ -21,15 +21,17 @@ const AskNameModal = () => {
     <>
       {isVisible ? (
         <div className="nameModalWrapper">
-          <TextField
-            className="nameModalField"
-            label="Enter your name"
-            variant="outlined"
-            autoFocus
-            value={name}
-            onChange={(e) => changeName(e.target.value)}
-          />
-          <CheckIcon style={{ cursor: "pointer" }} onClick={closeModal} />
+          <div className="nameModalField">
+            <TextField
+              className="nameModalInput"
+              label="Enter your name"
+              variant="outlined"
+              autoFocus
+              value={name}
+              onChange={(e) => changeName(e.target.value)}
+            />
+            <CheckIcon style={{ cursor: "pointer" }} onClick={closeModal} />
+          </div>
         </div>
       ) : (
         ""

@@ -6,8 +6,6 @@ import { styled } from "@mui/material/styles";
 
 const NotesField = () => {
   const notes = useSelector((state: Notes) => state.notes.value) as Note[];
-  console.log(notes);
-
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
@@ -15,6 +13,7 @@ const NotesField = () => {
     textAlign: "center",
     color: theme.palette.text.secondary,
   }));
+
   return (
     <div>
       <Stack spacing={2}>
