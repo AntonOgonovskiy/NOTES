@@ -1,0 +1,18 @@
+[
+  {
+    "text": "hello world",
+    "tags": ["world"]
+  },
+  {
+    "text": "hi Anton",
+    "tags": ["Anton"]
+  },
+  {
+    "text": "good job",
+    "tags": ["good", "job"]
+  },
+  {
+    "text": "create notes app",
+    "tags": ["create", "app"]
+  }
+]
