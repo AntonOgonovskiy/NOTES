@@ -18,7 +18,7 @@ const Search = () => {
         newArr.push(note);
       }
     }
-    dispatch({ type: "NOTES", payload: newArr });
+    dispatch({ type: "FILTEREDNOTES", payload: newArr });
   }
   return (
     <TextField

@@ -18,6 +18,11 @@ export interface Notes {
     value: NoteType[];
   };
 }
+export interface Filter {
+  filter: {
+    value: NoteType[];
+  };
+}
 export type NoteType = {
   text: string;
   tags: string[];

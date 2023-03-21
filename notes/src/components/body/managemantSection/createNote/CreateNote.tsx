@@ -27,7 +27,7 @@ const CreateNote = () => {
       .forEach((item) => (item.match(regexForTags) ? tags.push(item) : ""));
     const body: NoteType = { text, tags };
     notes.push(body);
-    dispatch({ type: "NOTES", payload: notes });
+    dispatch({ type: "FILTEREDNOTES", payload: notes });
   }
 
   return (
