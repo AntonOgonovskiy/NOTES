@@ -15,5 +15,5 @@ export interface Notes {
 }
 export type NoteType = {
   text: string;
-  tags: String[];
+  tags: string[];
 };

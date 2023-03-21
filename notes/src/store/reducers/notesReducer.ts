@@ -7,7 +7,7 @@ const defaultList = {
 
 export const notesReducer = (
   state = defaultList,
-  action: { type: string; payload: String[] }
+  action: { type: string; payload: string[] }
 ) => {
   switch (action.type) {
     case "NOTES": {
