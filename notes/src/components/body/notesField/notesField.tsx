@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { Creating, Filter, NoteType } from "../../../types";
-import Stack from "@mui/material/Stack";
 import "./notesField.scss";
 import Note from "../note/Note";
 import { useEffect } from "react";
@@ -16,11 +15,9 @@ const NotesField = () => {
 
   return (
     <div className="notesList">
-      <Stack spacing={2}>
-        {notes.map((item: NoteType, index: number) => (
-          <Note key={index} title={item.text} tags={item.tags} />
-        ))}
-      </Stack>
+      {notes.map((item: NoteType, index: number) => (
+        <Note key={index} title={item.text} tags={item.tags} />
+      ))}
     </div>
   );
 };

@@ -1,3 +1,9 @@
+.noteWrapper {
+  height: 78px;
+  width: 20%;
+  margin: calc((100% - 80%) / 8);
+}
+
 .noteTag {
   font-size: 0.7em;
 }

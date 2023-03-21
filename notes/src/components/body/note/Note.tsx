@@ -16,7 +16,7 @@ const Note = (props: { title: string; tags: string[] }) => {
   const tags = props.tags as string[];
 
   return (
-    <div>
+    <div className="noteWrapper">
       <Item elevation={24}>{title}</Item>
       {tags.map((item, index) => (
         <span className="noteTag" key={index}>
