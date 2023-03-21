@@ -8,6 +8,11 @@ export interface Visible {
     value: string;
   };
 }
+export interface Creating {
+  create: {
+    value: string;
+  };
+}
 export interface Notes {
   notes: {
     value: NoteType[];

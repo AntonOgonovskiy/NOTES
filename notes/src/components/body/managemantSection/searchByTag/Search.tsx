@@ -2,6 +2,7 @@ import { TextField } from "@mui/material";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Notes, NoteType } from "../../../../types";
+import "./search.scss";
 
 const Search = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,8 @@ const Search = () => {
   }
   return (
     <TextField
+      size="small"
+      className="searchField"
       id="outlined-basic"
       label="Search"
       value={searchString}
