@@ -1,8 +1,8 @@
 import { getNotes } from "../../API/API";
-import { Note } from "../../types";
+import { NoteType } from "../../types";
 
 const defaultList = {
-  value: getNotes() as Note[],
+  value: getNotes() as NoteType[],
 };
 
 export const notesReducer = (

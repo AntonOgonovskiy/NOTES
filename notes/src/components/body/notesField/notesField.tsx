@@ -1,24 +1,17 @@
 import { useSelector } from "react-redux";
-import { Note, Notes } from "../../../types";
-import Paper from "@mui/material/Paper";
+import { NoteType, Notes } from "../../../types";
 import Stack from "@mui/material/Stack";
-import { styled } from "@mui/material/styles";
+import "./notesField.scss";
+import Note from "../note/Note";
 
 const NotesField = () => {
-  const notes = useSelector((state: Notes) => state.notes.value) as Note[];
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  }));
+  const notes = useSelector((state: Notes) => state.notes.value) as NoteType[];
 
   return (
-    <div>
+    <div className="notesList">
       <Stack spacing={2}>
-        {notes.map((item: Note, index: number) => (
-          <Item key={index}>{item.text}</Item>
+        {notes.map((item: NoteType, index: number) => (
+          <Note key={index} title={item.text} tags={item.tags} />
         ))}
       </Stack>
     </div>

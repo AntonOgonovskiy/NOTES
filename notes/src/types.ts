@@ -10,10 +10,10 @@ export interface Visible {
 }
 export interface Notes {
   notes: {
-    value: Note[];
+    value: NoteType[];
   };
 }
-export type Note = {
+export type NoteType = {
   text: string;
   tags: String[];
 };
