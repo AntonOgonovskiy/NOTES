@@ -1,8 +1,10 @@
 import { TextField } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Changing, ChangingData, NoteType, Notes } from "../../../types";
+import "./changeModal.scss";
 
 const ChangeModal = () => {
   const dispatch = useDispatch();
@@ -30,6 +32,11 @@ const ChangeModal = () => {
     notes.splice(data.index, 1, body);
     dispatch({ type: "FILTEREDNOTES", payload: notes });
   }
+  function deleteNote() {
+    notes.splice(data.index, 1);
+    dispatch({ type: "FILTEREDNOTES", payload: notes });
+    dispatch({ type: "CHANGING", payload: false });
+  }
 
   useEffect(() => {
     setNote(data.title);
@@ -48,7 +55,16 @@ const ChangeModal = () => {
               value={note}
               onChange={(e) => setNote(e.target.value)}
             />
-            <CheckIcon style={{ cursor: "pointer" }} onClick={closeModal} />
+            <div className="noteModalManagement">
+              <CheckIcon
+                style={{ cursor: "pointer", marginBottom: "5px" }}
+                onClick={closeModal}
+              />
+              <DeleteOutlineIcon
+                style={{ cursor: "pointer" }}
+                onClick={deleteNote}
+              />
+            </div>
           </div>
         </div>
       ) : (
