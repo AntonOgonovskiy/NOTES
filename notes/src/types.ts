@@ -13,6 +13,19 @@ export interface Creating {
     value: string;
   };
 }
+export interface Changing {
+  change: {
+    value: string;
+  };
+}
+export interface ChangingData {
+  changeData: {
+    value: {
+      title: string;
+      index: number;
+    };
+  };
+}
 export interface Notes {
   notes: {
     value: NoteType[];

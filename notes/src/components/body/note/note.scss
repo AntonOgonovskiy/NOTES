@@ -1,6 +1,7 @@
 .noteWrapper {
   height: 78px;
   width: 20%;
+  cursor: pointer;
   margin: calc((100% - 80%) / 8);
   transition: all 0.5s;
   &:hover {

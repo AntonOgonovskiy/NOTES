@@ -2,8 +2,11 @@ import React from "react";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import "./note.scss";
+import { useDispatch } from "react-redux";
 
-const Note = (props: { title: string; tags: string[] }) => {
+const Note = (props: { title: string; tags: string[]; num: number }) => {
+  const dispatch = useDispatch();
+
   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
@@ -14,9 +17,16 @@ const Note = (props: { title: string; tags: string[] }) => {
   const regex = /#+/g;
   const title = props.title.replaceAll(regex, " ");
   const tags = props.tags as string[];
+  const data = { title: props.title, index: props.num };
+
+  function openChangingNoteModal() {
+    console.log(data);
+    dispatch({ type: "CHANGING", payload: true });
+    dispatch({ type: "CHANGINGDATA", payload: data });
+  }
 
   return (
-    <div className="noteWrapper">
+    <div className="noteWrapper" onClick={openChangingNoteModal}>
       <Item elevation={24}>{title}</Item>
       {tags.map((item, index) => (
         <span className="noteTag" key={index}>

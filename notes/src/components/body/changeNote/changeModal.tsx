@@ -1,22 +1,24 @@
 import { TextField } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Creating, NoteType, Notes } from "../../../../types";
-import { useState } from "react";
-import "./create.scss";
+import { Changing, ChangingData, NoteType, Notes } from "../../../types";
 
-const CreateNote = () => {
+const ChangeModal = () => {
   const dispatch = useDispatch();
-  const isVisible = useSelector((state: Creating) => state.create.value);
+  const isVisible = useSelector((state: Changing) => state.change.value);
+  const data = useSelector((state: ChangingData) => state.changeData.value);
   const notes = useSelector((state: Notes) => state.notes.value) as NoteType[];
   const [note, setNote] = useState("");
 
   function closeModal() {
-    createNote(note);
+    updateNote(note);
     setNote("");
-    dispatch({ type: "CREATING", payload: false });
+    dispatch({ type: "CHANGING", payload: false });
+    dispatch({ type: "CHANGINGDATA", payload: "" });
   }
-  function createNote(value: string) {
+
+  function updateNote(value: string) {
     if (value.length < 1) return;
     const regexForTags = /#(\S+)/g;
     const text = value;
@@ -25,9 +27,13 @@ const CreateNote = () => {
       .split(" ")
       .forEach((item) => (item.match(regexForTags) ? tags.push(item) : ""));
     const body: NoteType = { text, tags };
-    notes.push(body);
+    notes.splice(data.index, 1, body);
     dispatch({ type: "FILTEREDNOTES", payload: notes });
   }
+
+  useEffect(() => {
+    setNote(data.title);
+  }, [isVisible, data]);
 
   return (
     <>
@@ -37,7 +43,7 @@ const CreateNote = () => {
             <TextField
               className="noteModalInput"
               variant="outlined"
-              label="What do you want?"
+              label="Whanna change something?"
               autoFocus
               value={note}
               onChange={(e) => setNote(e.target.value)}
@@ -52,4 +58,4 @@ const CreateNote = () => {
   );
 };
 
-export default CreateNote;
+export default ChangeModal;

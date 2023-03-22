@@ -14,7 +14,9 @@ const Header = () => {
   return (
     <div className="headerWrapper">
       <p># My Notes</p>
-      <p onClick={askName}>Hello, {name}</p>
+      <p style={{ cursor: "pointer" }} onClick={askName}>
+        Hello, {name}
+      </p>
     </div>
   );
 };
