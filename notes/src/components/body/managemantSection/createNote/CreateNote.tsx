@@ -8,7 +8,9 @@ import "./create.scss";
 const CreateNote = () => {
   const dispatch = useDispatch();
   const isVisible = useSelector((state: Creating) => state.create.value);
-  const notes = useSelector((state: Notes) => state.notes.value) as NoteType[];
+  const noteList = useSelector(
+    (state: Notes) => state.notes.value
+  ) as NoteType[];
   const [note, setNote] = useState("");
 
   function closeModal() {
@@ -25,8 +27,8 @@ const CreateNote = () => {
       .split(" ")
       .forEach((item) => (item.match(regexForTags) ? tags.push(item) : ""));
     const body: NoteType = { text, tags };
-    notes.push(body);
-    dispatch({ type: "FILTEREDNOTES", payload: notes });
+    noteList.push(body);
+    dispatch({ type: "NOTES", payload: noteList });
   }
 
   return (

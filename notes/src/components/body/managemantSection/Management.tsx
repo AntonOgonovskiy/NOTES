@@ -1,5 +1,4 @@
 import React from "react";
-import Search from "./searchByTag/Search";
 import { Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useDispatch } from "react-redux";
@@ -14,7 +13,6 @@ const Management = () => {
   return (
     <div className="managementWrapper">
       <FilterTag />
-      {/* <Search /> */}
       <Button
         className="managementAddButton"
         variant="contained"
