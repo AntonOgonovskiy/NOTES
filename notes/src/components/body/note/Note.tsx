@@ -20,7 +20,6 @@ const Note = (props: { title: string; tags: string[]; num: number }) => {
   const data = { title: props.title, index: props.num };
 
   function openChangingNoteModal() {
-    console.log(data);
     dispatch({ type: "CHANGING", payload: true });
     dispatch({ type: "CHANGINGDATA", payload: data });
   }
