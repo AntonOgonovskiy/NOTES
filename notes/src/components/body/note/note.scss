@@ -2,6 +2,10 @@
   height: 78px;
   width: 20%;
   margin: calc((100% - 80%) / 8);
+  transition: all 0.5s;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .noteTag {

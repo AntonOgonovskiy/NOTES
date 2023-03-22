@@ -33,11 +33,12 @@ const CreateNote = () => {
   return (
     <>
       {isVisible ? (
-        <div className="nameModalWrapper">
-          <div className="nameModalField">
+        <div className="noteModalWrapper">
+          <div className="noteModalField">
             <TextField
-              className="createInput"
+              className="noteModalInput"
               variant="outlined"
+              label="What do you want?"
               autoFocus
               value={note}
               onChange={(e) => setNote(e.target.value)}

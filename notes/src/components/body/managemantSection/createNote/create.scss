@@ -1,4 +1,28 @@
-.createInput {
-  color: black;
-  background-color: white;
+@mixin display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin modalWrapper {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #999999, $alpha: 0.6);
+}
+.noteModalWrapper {
+  @include modalWrapper;
+  @include display;
+  .noteModalField {
+    @include display;
+    background-color: white;
+    border-radius: 10px;
+  }
+  .noteModalInput {
+    margin: 10px;
+    color: black;
+    background-color: white;
+  }
 }
